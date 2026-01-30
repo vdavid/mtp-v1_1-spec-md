@@ -53,7 +53,7 @@ def split_line_with_positions(line: str) -> List[CellInfo]:
                     break
             else:
                 i += 1
-        if i >= len(line) and start < len(line):
+        if i >= len(line) > start:
             text = line[start:].strip()
             if text:
                 cells.append(CellInfo(text, start, len(line)))
@@ -132,7 +132,7 @@ def extract_table(lines: List[str], start_idx: int, section_end: int) -> Tuple[O
         headers = [c.text for c in header_cells]
         for cont in cont_cells:
             best_col = find_best_column(cont.start_pos, col_starts)
-            if best_col >= 0 and best_col < len(headers):
+            if 0 <= best_col < len(headers):
                 headers[best_col] = headers[best_col] + ' ' + cont.text
         i += 1
     else:
@@ -182,7 +182,7 @@ def extract_table(lines: List[str], start_idx: int, section_end: int) -> Tuple[O
         if is_continuation and current_row:
             for cont in cells:
                 best_col = find_best_column(cont.start_pos, col_starts)
-                if best_col >= 0 and best_col < len(current_row):
+                if 0 <= best_col < len(current_row):
                     if current_row[best_col]:
                         current_row[best_col] += ' ' + cont.text
                     else:

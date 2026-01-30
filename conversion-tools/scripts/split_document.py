@@ -5,7 +5,6 @@ Split MTP specification markdown into individual section files.
 
 import re
 import os
-from typing import List, Tuple
 
 def slugify(text: str) -> str:
     """Create a URL-safe slug from text."""

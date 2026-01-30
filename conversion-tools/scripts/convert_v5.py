@@ -67,7 +67,7 @@ def extract_toc(lines: List[str], start_idx: int) -> Tuple[List[str], int]:
     return toc_entries, i
 
 def format_toc(toc_lines: List[str]) -> str:
-    """Format TOC entries as markdown."""
+    """Format TOC entries as Markdown."""
     result = ["## Table of Contents\n"]
 
     for line in toc_lines:
@@ -127,7 +127,7 @@ def split_line_with_positions(line: str) -> List[CellInfo]:
                 i += 1
 
         # End of line - last cell
-        if i >= len(line) and start < len(line):
+        if i >= len(line) > start:
             text = line[start:].strip()
             if text:
                 cells.append(CellInfo(text, start, len(line)))
@@ -172,7 +172,7 @@ def merge_header_continuation(header_cells: List[CellInfo], cont_cells: List[Cel
     for cont in cont_cells:
         # Find which header column this continuation belongs to
         best_col = find_best_matching_column(cont.start_pos, col_starts)
-        if best_col >= 0 and best_col < len(merged):
+        if 0 <= best_col < len(merged):
             merged[best_col] = merged[best_col] + ' ' + cont.text
 
     return merged
@@ -192,7 +192,7 @@ def merge_data_continuation(current_row: List[str], cont_cells: List[CellInfo],
     """
     for cont in cont_cells:
         best_col = find_best_matching_column(cont.start_pos, col_starts)
-        if best_col >= 0 and best_col < len(current_row):
+        if 0 <= best_col < len(current_row):
             if current_row[best_col]:
                 current_row[best_col] += ' ' + cont.text
             else:
@@ -228,7 +228,7 @@ def is_header_continuation_pattern(line: str) -> bool:
     return False
 
 def table_to_markdown(headers: List[str], rows: List[List[str]]) -> str:
-    """Convert headers and rows to markdown table."""
+    """Convert headers and rows to Markdown table."""
     if not headers:
         return ''
 
@@ -369,7 +369,7 @@ def extract_table(lines: List[str], start_idx: int) -> Tuple[Optional[str], int]
     return md_table, i
 
 def convert_section_header(line: str) -> Optional[str]:
-    """Convert section number + title to markdown header."""
+    """Convert section number + title to Markdown header."""
     stripped = line.strip()
 
     if '...' in stripped:
