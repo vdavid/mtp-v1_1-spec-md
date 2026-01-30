@@ -9,29 +9,30 @@ The USB Media Transfer Protocol (MTP) v1.1 specification, converted to Markdown 
 
 The official MTP specification is only available as
 a [282-page PDF](https://www.usb.org/document-library/media-transfer-protocol-v11-spec-and-mtp-v11-adopters-agreement)
-from USB.org. PDFs are difficult for AI assistants and LLMs to process effectively. This repository provides a clean
-Markdown conversion, enabling:
+from USB.org. PDFs are rather hard for LLMs to process. This repository is a clean Markdown conversion, enabling:
 
-- AI-assisted MTP implementation development
+- MTP implementation development for AI agents
 - Easy searching and navigation
-- Copy-paste of tables and code references
-- Integration with documentation tools
+- Copy-pasting tables and code references
+- Easier integration with documentation tools
 
 ## Getting started
 
 New to MTP? Here's a recommended reading order:
 
-1. **[02-introduction.md](02-introduction.md)** — Start here. Covers the device model, object model, and core concepts.
-2. **[05-communication-model.md](05-communication-model.md)** — How initiators and responders communicate (transactions,
+1. **[02-introduction.md](02-introduction.md)**: Start here. Covers the device model, object model, and core concepts.
+2. **[05-communication-model.md](05-communication-model.md)**: How initiators and responders communicate (transactions,
    sessions, operations).
-3. **[04-normative-reference.md](04-normative-reference.md)** — Data types and codes you'll need to understand the rest.
-4. **[10-appendix-d-operations.md](10-appendix-d-operations.md)** — The core operations (GetDeviceInfo, OpenSession,
+3. **[04-normative-reference.md](04-normative-reference.md)**: Data types and codes you'll need to understand the rest.
+4. **[10-appendix-d-operations.md](10-appendix-d-operations.md)**: The core operations (GetDeviceInfo, OpenSession,
    GetObject, SendObject, etc.).
-5. **[12-appendix-f-responses.md](12-appendix-f-responses.md)** — Response codes your implementation needs to handle.
+5. **[12-appendix-f-responses.md](12-appendix-f-responses.md)**: Response codes your implementation needs to handle.
 
-The remaining appendices (object formats, properties, events) can be referenced as needed during implementation.
+Then reference the remaining appendices (object formats, properties, events) as-needed during implementation.
 
 ## Quick reference
+
+These might come handy.
 
 ### Common operations
 
@@ -62,7 +63,7 @@ The remaining appendices (object formats, properties, events) can be referenced 
 
 See [Appendix D](10-appendix-d-operations.md) and [Appendix F](12-appendix-f-responses.md) for complete lists.
 
-## Specification contents
+## Index
 
 | File                                                                         | Content                                            |
 |------------------------------------------------------------------------------|----------------------------------------------------|
@@ -86,9 +87,9 @@ See [Appendix D](10-appendix-d-operations.md) and [Appendix F](12-appendix-f-res
 
 These projects were built using this Markdown specification, proving it's complete and usable:
 
-| Project                                    | Language | Description                                                 |
-|--------------------------------------------|----------|-------------------------------------------------------------|
-| [mtp-rs](https://github.com/vdavid/mtp-rs) | Rust     | MTP implementation built with AI assistance using this spec |
+| Project                                    | Language | Description                                          |
+|--------------------------------------------|----------|------------------------------------------------------|
+| [mtp-rs](https://github.com/vdavid/mtp-rs) | Rust     | MTP implementation built with Claude using this spec |
 
 Built something with this spec? [Open a PR](../../pulls) to add it!
 
@@ -110,9 +111,10 @@ The original specification is available from the USB Implementers Forum:
 
 ## Conversion process
 
-This Markdown version was created using Python scripts that extract text from the PDF while preserving table structure.
-The conversion tools are available in the [`/conversion-tools`](conversion-tools/) directory. See
-the [conversion README](conversion-tools/README.md) for technical details.
+I created this Markdown using Python scripts that extract text from the PDF while preserving table structure.
+The conversion tools are available in the [`/conversion-tools`](conversion-tools/) directory, if you want to tweak/reuse
+it. Although, note that manual review (95% AI, 5% human) was used after the script conversion. See the
+[conversion README](conversion-tools/README.md) for technical details.
 
 ## Copyright notice
 
