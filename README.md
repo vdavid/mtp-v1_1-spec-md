@@ -99,7 +99,7 @@ MTP builds on other standards. These may be helpful for deeper understanding:
 
 | Spec                                                                               | Description                                                    |
 |------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| [PTP (ISO 15740)](https://www.iso.org/standard/45346.html)                         | Picture Transfer Protocol — MTP extends this                   |
+| [PTP (ISO 15740)](https://www.iso.org/standard/63602.html)                         | Picture Transfer Protocol — MTP extends this (paid spec!)      |
 | [USB Device Class Definition](https://www.usb.org/documents?search=still+image)    | USB Still Image Capture Device Class (MTP uses this transport) |
 | [USB 2.0 Specification](https://www.usb.org/document-library/usb-20-specification) | USB fundamentals                                               |
 
